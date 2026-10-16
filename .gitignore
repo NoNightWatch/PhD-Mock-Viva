@@ -1,0 +1,15 @@
+# Keep private preparation materials outside the public repository.
+/private/
+/output/
+/tmp/
+/.preview/
+/.agents/
+.env
+.env.*
+*.log
+*.pdf
+*.docx
+*.pptx
+__pycache__/
+.DS_Store
+Thumbs.db
