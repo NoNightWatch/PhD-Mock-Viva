@@ -1,18 +1,28 @@
-[中文](README.md) · [English](README.en.md)
+<p align="center"><a href="README.md">中文</a> · <a href="README.en.md">English</a></p>
 
-<p align="center"><img src="assets/shared/study-hall.png" width="960" alt="Original pixel study hall: three scholars discuss a thesis around a table with books and scrolls."></p>
-<p align="center"><img src="assets/en/title.svg" width="800" alt="VIVA QUEST. The Viva Study Hall. Practice questions grounded in your thesis."></p>
+<p align="center"><img src="assets/en/hero.png" width="960" alt="VIVA QUEST · AI MOCK VIVA. Your thesis. Your next question. Integrated pixel-art cover showing scholars discussing a thesis."></p>
 
-# PhD Mock Viva
+<p align="center">
+  <strong>You wrote the thesis. Now practice defending it.</strong><br>
+  Bring your thesis for source-linked questions, adaptive follow-ups, and evidence-based review.
+</p>
 
-**An AI skill for doctoral candidates: generate thesis-grounded questions with sources, practice follow-ups, and review your answers.**
+<p align="center">
+  <a href="dist/thesis-viva.zip?raw=true"><img src="assets/en/download.svg" width="270" alt="Get the skill: download the complete ZIP"></a>
+  <a href="#start"><img src="assets/en/begin.svg" width="270" alt="Start practicing: see the materials and prompts"></a>
+</p>
 
-[Download the skill](dist/thesis-viva.zip?raw=true) · [Quick start](#start) · [See an example](#example) · [Report an issue](https://github.com/NoNightWatch/PhD-Mock-Viva/issues)
+<p align="center">
+  <a href="#example">See a question first</a> · <a href="#workflow">Explore the workflow</a> · <a href="#faq">Common questions</a><br>
+  <sub>Thesis body and your own AI assistant required · Optional examiner papers · MIT licensed</sub>
+</p>
 
-**VIVA QUEST** is the display name. The skill name and invocation remain **`thesis-viva` / `$thesis-viva`**. This repository provides instructions and presentation assets; you bring your own AI assistant.
+**VIVA QUEST is an AI mock-viva skill for doctoral candidates.** It guides an assistant to build questions from the thesis's claims, methods, and evidence, so you can practice explaining research choices and the limits of your conclusions. The skill name and invocation remain **`thesis-viva` / `$thesis-viva`**.
 
 <a id="modes"></a>
 <img src="assets/en/modes.svg" width="800" alt="01 · Three ways to practice">
+
+**Start where you are.** Build a question bank to find gaps, practice speaking in a mock viva, or revisit real questions after your examination.
 
 <img src="assets/en/questions.svg" width="640" alt="Question bank: questions, sources, reasoning">
 
@@ -26,21 +36,26 @@ Read the thesis first, then ask one main question at a time. Follow the answer t
 
 Compare recalled viva questions with the thesis, distinguishing document evidence, recollections, analytical inferences, and unverified details.
 
-**Optional: include examiner papers.** Choose once at setup and reuse the choice and materials. Prefer relevant first-author or corresponding-author papers, including explicitly designated shared roles; other coauthored work needs contribution checks. Papers may suggest scholarly interests but cannot establish the actual questions.
+**Optional: bring examiner papers.** Connect questions to methods and debates in relevant research. Choose once at setup and reuse the choice and materials. Prefer relevant first-author or corresponding-author papers, including explicitly designated shared roles; other coauthored work needs contribution checks. Papers may suggest scholarly interests but cannot establish the actual questions.
 
 <a id="start"></a>
 <img src="assets/en/start.svg" width="800" alt="02 · Prepare and begin">
 
-### Environment and dependencies
+**Your first session needs three things: the complete skill files, a readable thesis body, and an AI assistant that can read them.** Choose one setup route below. If you do not have a thesis ready, [view the fictional example first](#example).
+
+<details>
+<summary><strong>Check environment and dependencies</strong></summary>
 
 - Required: an AI assistant that can read Markdown instructions and the thesis body.
 - PDF figures and equations also require access to the original pages. Scanned documents may need OCR. If those capabilities are unavailable, supply readable text and the necessary clear images.
 - The skill has no runtime scripts, Python/Node dependencies, dedicated API key, or background service. The AI platform's own account requirements, fees, and file limits still apply.
 - Network access is used when checking external sources. Local-file use requires appropriate file permissions.
 
+</details>
+
 ### Option A: install in Codex
 
-In a Codex environment with `$skill-installer`, send:
+In a Codex environment with `$skill-installer`, copy this installation prompt:
 
 ```text
 $skill-installer
@@ -50,7 +65,7 @@ https://github.com/NoNightWatch/PhD-Mock-Viva/tree/main/thesis-viva
 
 Alternatively, download the [skill ZIP](dist/thesis-viva.zip?raw=true) and place its `thesis-viva` folder under your project's `.agents/skills/` directory. Keep the complete folder structure and avoid overwriting an existing skill with the same name. Restart Codex if it does not appear. Refer to the [official documentation](https://learn.chatgpt.com/docs/build-skills) for installation locations and invocation details.
 
-After installation, provide the thesis and send:
+After installation, provide the thesis body and send your first-session prompt:
 
 ```text
 $thesis-viva
@@ -62,7 +77,9 @@ Ask one main question at a time and wait for me to finish.
 
 ### Option B: load manually in another AI assistant
 
-Extract the [skill ZIP](dist/thesis-viva.zip?raw=true). Upload `SKILL.md`, both Markdown files in `references/`, and your thesis. Then send:
+1. Download and extract the [skill ZIP](dist/thesis-viva.zip?raw=true), keeping the complete `thesis-viva` folder.
+2. Give your assistant `SKILL.md`, both Markdown files in `references/`, and the thesis body.
+3. Copy this prompt to begin:
 
 ```text
 Read SKILL.md and use the two reference files as it directs.
@@ -91,7 +108,7 @@ Preserve the original question numbers and distinguish document evidence,
 my recollections, and analytical inferences.
 ```
 
-If a readable thesis body is missing, the skill requests it first. A title or abstract alone is insufficient for document-specific questioning.
+**What happens next?** The assistant states its reading coverage, confirms whether to include examiner papers, and then asks the first question. Explicitly choose thesis-only mode to skip examiner materials. If a readable body is missing, it requests that first; a title or abstract alone is insufficient for document-specific questioning.
 
 <a id="example"></a>
 <img src="assets/en/example.svg" width="800" alt="03 · A fictional example">
@@ -115,6 +132,8 @@ Illustrative output excerpt:
 > **Questioning logic:** Examine the inference from an overall change to a specific factor's effect, then ask for a design that distinguishes explanations.
 
 [Full Chinese example](examples/example-output.zh.md) · [Matching English example](examples/example-output.en.md)
+
+Every question should answer two checks: **Where does it come from in the thesis? Why is it worth asking?** Your practice questions are built afresh from the body you provide.
 
 <a id="workflow"></a>
 <img src="assets/en/workflow.svg" width="800" alt="04 · The practice route">
@@ -178,10 +197,14 @@ Ordinary practice uses conversation. Files are created when Markdown output is r
 <a id="feedback"></a>
 <img src="assets/en/feedback.svg" width="800" alt="07 · Feedback and sources">
 
-Report problems through [Issues](https://github.com/NoNightWatch/PhD-Mock-Viva/issues). Include your environment, reproduction steps, and expected and actual behavior, with confidential content removed. If this helps your preparation, consider a Star or share the repository link.
+<p align="center"><a href="#start"><img src="assets/en/next.svg" width="800" alt="Your next question starts with your thesis. Return to setup and begin your first session."></a></p>
+
+Ready to begin? [Get the skill](dist/thesis-viva.zip?raw=true), bring your thesis, and choose a practice mode. If it helps your preparation, consider a **Star** or share it with someone preparing for their viva.
+
+Report problems through [Issues](https://github.com/NoNightWatch/PhD-Mock-Viva/issues). Include your environment, reproduction steps, and expected and actual behavior. Remove confidential thesis content before posting.
 
 The core skill and original project files use the [MIT License](LICENSE). The hero is AI-assisted artwork, and pixel panels are drawn by a repository script. No existing game characters or assets were used. See [asset provenance](assets/source/README.md) for visual and font notes.
 
 Page organization takes inspiration from [Obsidian-Codex-CC-for-academy](https://github.com/NoNightWatch/Obsidian-Codex-CC-for-academy); the text and artwork were created for this project. Linked external documents and third-party trademarks retain their respective rights. This project is not affiliated with game publishers or AI platforms.
 
-[Get the skill](dist/thesis-viva.zip?raw=true) · [Read the core instructions](thesis-viva/SKILL.md) · [中文](README.md)
+<p align="center"><a href="dist/thesis-viva.zip?raw=true">Get the skill</a> · <a href="thesis-viva/SKILL.md">Read the core instructions</a> · <a href="#start">Back to the start</a> · <a href="README.md">中文</a></p>

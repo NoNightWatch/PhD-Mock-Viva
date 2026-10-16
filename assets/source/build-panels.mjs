@@ -11,21 +11,14 @@ const label = (x,y,t,size,fill=palette.ivory,anchor='start') => `<text x="${x}" 
 function panel(height, title, body) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="640" height="${height}" viewBox="0 0 640 ${height}" role="img"><title>${escape(title)}</title>${rect(0,0,640,height,palette.navy)}<path d="M12 4H628V12H636V${height-12}H628V${height-4}H12V${height-12}H4V12H12Z" fill="none" stroke="${palette.gold}" stroke-width="2"/>${rect(16,16,608,height-32,palette.panel)}${body}</svg>\n`;
 }
-const glyphs = {
-  V:['10001','10001','10001','10001','10001','01010','00100'],
-  I:['11111','00100','00100','00100','00100','00100','11111'],
-  A:['01110','10001','10001','11111','10001','10001','10001'],
-  Q:['01110','10001','10001','10001','10101','10010','01101'],
-  U:['10001','10001','10001','10001','10001','10001','01110'],
-  E:['11111','10000','10000','11110','10000','10000','11111'],
-  S:['01111','10000','10000','01110','00001','00001','11110'],
-  T:['11111','00100','00100','00100','00100','00100','00100']
-};
-function wordmark() {
-  const text='VIVA QUEST', scale=7, start=(640-(text.length*6-1)*scale)/2;
-  let out='';
-  [...text].forEach((ch,i)=> (glyphs[ch]||[]).forEach((row,y)=>[...row].forEach((p,x)=>{ if(p==='1') out+=rect(start+(i*6+x)*scale,30+y*scale,scale,scale,palette.gold); })));
-  return `<g shape-rendering="crispEdges">${out}</g>`;
+function button(title, primary) {
+  const bg=primary?palette.gold:palette.navy;
+  const ink=primary?palette.navy:palette.ivory;
+  const edge=primary?'#FBE2A8':palette.gold;
+  const arrow=primary
+    ? `<path d="M51 30V63M39 51L51 63L63 51M32 70V78H70V70" fill="none" stroke="${ink}" stroke-width="6"/>`
+    : `<path d="M35 54H67M55 42L67 54L55 66" fill="none" stroke="${palette.mint}" stroke-width="6"/>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="540" height="124" viewBox="0 0 540 124" role="img"><title>${escape(title)}</title><path d="M12 2H528V12H538V96H528V106H12V96H2V12H12Z" fill="${bg}" stroke="${edge}" stroke-width="3"/>${arrow}${label(294,66,title,34,ink,'middle')}</svg>\n`;
 }
 function icon(kind) {
   let out=rect(30,30,88,80,palette.navy);
@@ -43,19 +36,21 @@ function icon(kind) {
 }
 const labels = {
   zh: {
-    title:'答辩研习所',
+    actions:['下载 SKILL','开始第一轮','下一次追问，从你的论文开始。','准备正文 · 选择模式 · 开始练习'],
     sections:[['modes','三种练习'],['start','准备与启动'],['example','虚构示例'],['workflow','练习路线'],['limits','边界与隐私'],['faq','常见问题'],['feedback','反馈与来源']],
     cards:[['questions','问题清单','主问题 · 出处 · 提问逻辑'],['practice','模拟答辩','一次一题 · 随回答追问'],['review','答辩复盘','对照原文 · 区分事实与回忆']]
   },
   en: {
-    title:'THE VIVA STUDY HALL',
+    actions:['GET THE SKILL','START PRACTICING','Your next question starts here.','Bring your thesis. Choose a mode. Begin.'],
     sections:[['modes','THREE WAYS TO PRACTICE'],['start','PREPARE AND BEGIN'],['example','A FICTIONAL EXAMPLE'],['workflow','THE PRACTICE ROUTE'],['limits','BOUNDARIES & PRIVACY'],['faq','COMMON QUESTIONS'],['feedback','FEEDBACK & SOURCES']],
     cards:[['questions','QUESTION BANK','Questions, sources, reasoning'],['practice','MOCK VIVA','One question, adaptive follow-ups'],['review','POST-VIVA REVIEW','Compare the text and recollections']]
   }
 };
 for(const [lang, copy] of Object.entries(labels)) {
   const dir=path.join(assetRoot,lang); fs.mkdirSync(dir,{recursive:true});
-  fs.writeFileSync(path.join(dir,'title.svg'),panel(160,`VIVA QUEST | ${copy.title}`,wordmark()+label(320,126,copy.title,30,palette.mint,'middle')));
+  fs.writeFileSync(path.join(dir,'download.svg'),button(copy.actions[0],true));
+  fs.writeFileSync(path.join(dir,'begin.svg'),button(copy.actions[1],false));
+  fs.writeFileSync(path.join(dir,'next.svg'),panel(154,copy.actions[2],label(320,67,copy.actions[2],30,palette.gold,'middle')+label(320,111,copy.actions[3],22,palette.mint,'middle')));
   copy.sections.forEach(([file,title],i)=>{
     const body=rect(28,24,52,40,palette.gold)+label(54,53,String(i+1).padStart(2,'0'),24,palette.navy,'middle')+label(102,55,title,30);
     fs.writeFileSync(path.join(dir,`${file}.svg`),panel(88,title,body));
@@ -64,4 +59,4 @@ for(const [lang, copy] of Object.entries(labels)) {
     fs.writeFileSync(path.join(dir,`${file}.svg`),panel(140,title,icon(file)+label(144,62,title,30,palette.mint)+label(144,99,sub,22,palette.muted)));
   });
 }
-console.log('Built 22 localized SVG panels.');
+console.log('Built 26 localized SVG panels. Integrated hero PNGs are maintained separately.');

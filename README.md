@@ -1,18 +1,28 @@
-[中文](README.md) · [English](README.en.md)
+<p align="center"><a href="README.md">中文</a> · <a href="README.en.md">English</a></p>
 
-<p align="center"><img src="assets/shared/study-hall.png" width="960" alt="原创像素研习室：三位学者围坐书桌，借助论文与书卷讨论问题。"></p>
-<p align="center"><img src="assets/zh/title.svg" width="800" alt="VIVA QUEST · 答辩研习所。从论文出发，练习每一次追问。"></p>
+<p align="center"><img src="assets/zh/hero.png" width="960" alt="VIVA QUEST · AI 博士答辩练习。你的论文，你的下一次追问。标题与像素学术讨论场景融为一幅封面。"></p>
 
-# PhD Mock Viva
+<p align="center">
+  <strong>论文写完了，下一步是把它讲清楚。</strong><br>
+  带上你的论文，练习有出处的提问、随回答展开的追问，以及有依据的复盘。
+</p>
 
-**面向博士生的 AI 答辩练习 skill：根据你的论文生成有出处的问题，练习追问，并复盘回答。**
+<p align="center">
+  <a href="dist/thesis-viva.zip?raw=true"><img src="assets/zh/download.svg" width="270" alt="下载 skill：获取完整 ZIP 文件"></a>
+  <a href="#start"><img src="assets/zh/begin.svg" width="270" alt="开始第一轮：查看材料与调用指令"></a>
+</p>
 
-[下载 skill](dist/thesis-viva.zip?raw=true) · [快速开始](#start) · [查看示例](#example) · [反馈问题](https://github.com/NoNightWatch/PhD-Mock-Viva/issues)
+<p align="center">
+  <a href="#example">先看一次提问</a> · <a href="#workflow">了解练习流程</a> · <a href="#faq">常见问题</a><br>
+  <sub>需要论文正文与自己的 AI 助手 · 可选考官论文 · MIT 开源</sub>
+</p>
 
-展示名称为 **VIVA QUEST**。技能名称与调用标识保持 **`thesis-viva` / `$thesis-viva`**。本仓库提供指令文件和展示素材，运行需要你自己的 AI 助手。
+**VIVA QUEST 是面向博士生的 AI 模拟答辩 skill。** 它让助手从论文的主张、方法和证据中组织问题，帮助你练习解释研究选择与结论边界。技能名称与调用标识保持 **`thesis-viva` / `$thesis-viva`**。
 
 <a id="modes"></a>
 <img src="assets/zh/modes.svg" width="800" alt="01 · 三种练习">
+
+**从你当前的准备阶段开始。** 想找遗漏，先列问题；想练表达，进行模拟；已经答辩，回看真实问题。
 
 <img src="assets/zh/questions.svg" width="640" alt="问题清单：主问题、出处、提问逻辑">
 
@@ -26,21 +36,26 @@
 
 把你回忆的答辩问题与论文对照，区分原文事实、现场回忆、分析推断及待核实内容。
 
-**可选：加入考官论文。** 启动时选择一次，后续复用选择与材料。优先相关的第一作者或通讯作者论文，包括明确标注的共同角色；其他合著论文需核对具体贡献。材料用于推测学术关注点，不能确定真实考题。
+**可选：带上考官论文。** 让提问结合相关研究中的方法与争论。启动时选择一次，后续复用选择与材料。优先相关的第一作者或通讯作者论文，包括明确标注的共同角色；其他合著论文需核对具体贡献。材料用于推测学术关注点，不能确定真实考题。
 
 <a id="start"></a>
 <img src="assets/zh/start.svg" width="800" alt="02 · 准备与启动">
 
-### 环境与依赖
+**第一轮需要三样东西：完整 skill 文件、可读论文正文、能够读取它们的 AI 助手。** 按你的使用环境选择下面一种方式。暂时没有自己的论文，也可以[先看虚构示例](#example)。
+
+<details>
+<summary><strong>展开环境与依赖</strong></summary>
 
 - 必需：能够读取 Markdown 指令及论文正文的 AI 助手。
 - 涉及 PDF 图表或公式时，助手还需能查看原页；扫描件可能需要 OCR。缺少这些能力时，提供可读正文和必要的清晰图像。
 - Skill 本身没有运行脚本、Python/Node 依赖、专用 API 密钥或后台服务。AI 平台自身的账号、费用和文件限制仍适用。
 - 联网仅在核验外部资料时使用；本地文件模式需要相应文件访问权限。
 
+</details>
+
 ### 方式 A：在 Codex 中安装
 
-在提供 `$skill-installer` 的 Codex 环境中发送：
+在提供 `$skill-installer` 的 Codex 环境中，复制这段安装指令：
 
 ```text
 $skill-installer
@@ -50,7 +65,7 @@ https://github.com/NoNightWatch/PhD-Mock-Viva/tree/main/thesis-viva
 
 也可下载 [skill ZIP](dist/thesis-viva.zip?raw=true)，将其中的 `thesis-viva` 文件夹放到你项目的 `.agents/skills/` 下。保留整个文件夹结构，避免覆盖已有同名技能。若安装后未显示，重启 Codex。安装路径和调用方式以[官方文档](https://learn.chatgpt.com/docs/build-skills)为准。
 
-安装完成后提供论文，发送：
+安装完成后提供论文正文，再发送第一轮练习指令：
 
 ```text
 $thesis-viva
@@ -61,7 +76,9 @@ $thesis-viva
 
 ### 方式 B：在其他 AI 助手中手动加载
 
-解开 [skill ZIP](dist/thesis-viva.zip?raw=true)，上传 `SKILL.md`、`references/` 中的两个 Markdown 文件，以及你的论文。然后发送：
+1. 下载并解开 [skill ZIP](dist/thesis-viva.zip?raw=true)，保留整个 `thesis-viva` 文件夹。
+2. 向助手提供 `SKILL.md`、`references/` 中的两个 Markdown 文件，以及你的论文正文。
+3. 复制下面的指令，开始第一轮：
 
 ```text
 请读取 SKILL.md，并按其中的路由使用两份 reference 文件。
@@ -87,7 +104,7 @@ $thesis-viva
 保留原题号，区分原文依据、我的回忆与分析推断。
 ```
 
-未提供可读论文正文时，skill 会先索取正文。只有题目或摘要不足以启动针对论文的提问。
+**启动后会发生什么？** 助手先确认论文读取范围，再确认是否加入考官论文，随后提出第一道问题。明确选择“仅基于论文”即可跳过考官材料。未提供可读正文时，会先索取正文；题目或摘要不足以启动针对论文的提问。
 
 <a id="example"></a>
 <img src="assets/zh/example.svg" width="800" alt="03 · 虚构示例">
@@ -111,6 +128,8 @@ $thesis-viva
 > **提问逻辑：** 检验整体变化与单项因素效应之间的推理，接着询问能区分解释的比较设计。
 
 [完整中文示例](examples/example-output.zh.md) · [对应英文示例](examples/example-output.en.md)
+
+每个问题都应能回答两个追问：**它来自论文哪里？为什么值得问？** 正式练习会依据你提供的正文重新构建问题。
 
 <a id="workflow"></a>
 <img src="assets/zh/workflow.svg" width="800" alt="04 · 练习路线">
@@ -174,10 +193,14 @@ $thesis-viva
 <a id="feedback"></a>
 <img src="assets/zh/feedback.svg" width="800" alt="07 · 反馈与来源">
 
-欢迎通过 [Issues](https://github.com/NoNightWatch/PhD-Mock-Viva/issues) 报告问题。请提供使用环境、复现步骤、预期和实际行为，并删去论文私密内容。若它对你的准备有帮助，欢迎 Star 或分享仓库链接。
+<p align="center"><a href="#start"><img src="assets/zh/next.svg" width="800" alt="下一次追问，从你的论文开始。回到使用说明，开始第一轮。"></a></p>
+
+准备开始了？[下载 skill](dist/thesis-viva.zip?raw=true)，带上论文，选一种练习方式。如果对你的准备有帮助，欢迎 **Star**，或把仓库分享给正在准备答辩的同学。
+
+使用中遇到问题，请通过 [Issues](https://github.com/NoNightWatch/PhD-Mock-Viva/issues) 提供环境、复现步骤、预期和实际行为。提交前删去论文私密内容。
 
 核心技能与本项目原创文件采用 [MIT License](LICENSE)。横幅由 AI 辅助生成，像素面板由本仓库脚本绘制；未使用现成游戏角色或素材。视觉与字体说明见 [素材来源](assets/source/README.md)。
 
 页面组织参考 [Obsidian-Codex-CC-for-academy](https://github.com/NoNightWatch/Obsidian-Codex-CC-for-academy)，文字和画面为本项目重新制作。引用的外部文档及第三方商标保留各自权利。本项目与游戏发行方及 AI 平台无官方关联。
 
-[领取 skill](dist/thesis-viva.zip?raw=true) · [阅读核心指令](thesis-viva/SKILL.md) · [English](README.en.md)
+<p align="center"><a href="dist/thesis-viva.zip?raw=true">下载 skill</a> · <a href="thesis-viva/SKILL.md">阅读核心指令</a> · <a href="#start">回到开始</a> · <a href="README.en.md">English</a></p>
