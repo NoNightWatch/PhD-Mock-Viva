@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="dist/thesis-viva.zip?raw=true"><img src="assets/en/download.svg" width="270" alt="Get the skill: download the complete ZIP"></a>
+  <a href="dist/thesis-viva.zip?raw=true"><img src="assets/en/download.svg" width="270" alt="Get the guide: download the complete ZIP"></a>
   <a href="#start"><img src="assets/en/begin.svg" width="270" alt="Start practicing: see the materials and prompts"></a>
 </p>
 
@@ -17,7 +17,7 @@
   <sub>Thesis body and your own AI assistant required · Optional examiner papers · MIT licensed</sub>
 </p>
 
-**VIVA QUEST is an AI mock-viva skill for doctoral candidates.** It guides an assistant to build questions from the thesis's claims, methods, and evidence, so you can practice explaining research choices and the limits of your conclusions. The skill name and invocation remain **`thesis-viva` / `$thesis-viva`**.
+**VIVA QUEST is a PhD viva practice guide.** Use it with an AI assistant that can read your materials to build questions from your thesis's claims, methods, and evidence. Practice explaining research choices and the limits of your conclusions through question banks, one-question-at-a-time simulations, and post-viva review.
 
 <a id="modes"></a>
 <img src="assets/en/modes.svg" width="800" alt="01 · Three ways to practice">
@@ -41,48 +41,40 @@ Compare recalled viva questions with the thesis, distinguishing document evidenc
 <a id="start"></a>
 <img src="assets/en/start.svg" width="800" alt="02 · Prepare and begin">
 
-**Your first session needs three things: the complete skill files, a readable thesis body, and an AI assistant that can read them.** Choose one setup route below. If you do not have a thesis ready, [view the fictional example first](#example).
+**Your first session needs three things: the complete guide files, a readable thesis body, and an AI assistant that can read them.** Choose one setup route below. If you do not have a thesis ready, [view the fictional example first](#example).
 
 <details>
 <summary><strong>Check environment and dependencies</strong></summary>
 
 - Required: an AI assistant that can read Markdown instructions and the thesis body.
 - PDF figures and equations also require access to the original pages. Scanned documents may need OCR. If those capabilities are unavailable, supply readable text and the necessary clear images.
-- The skill has no runtime scripts, Python/Node dependencies, dedicated API key, or background service. The AI platform's own account requirements, fees, and file limits still apply.
+- The guide has no runtime scripts, Python/Node dependencies, dedicated API key, or background service. The AI platform's own account requirements, fees, and file limits still apply.
 - Network access is used when checking external sources. Local-file use requires appropriate file permissions.
 
 </details>
 
-### Option A: install in Codex
+### Option A: have your assistant read the local guide
 
-In a Codex environment with `$skill-installer`, copy this installation prompt:
+Download the [complete viva guide](dist/thesis-viva.zip?raw=true), extract it, and place the `thesis-viva` folder in a workspace accessible to Codex, Claude Code, or another file-reading assistant. Keep the whole folder and both references. No extension installation or configuration change is needed to begin.
 
-```text
-$skill-installer
-Install the thesis-viva skill from:
-https://github.com/NoNightWatch/PhD-Mock-Viva/tree/main/thesis-viva
-```
-
-Alternatively, download the [skill ZIP](dist/thesis-viva.zip?raw=true) and place its `thesis-viva` folder under your project's `.agents/skills/` directory. Keep the complete folder structure and avoid overwriting an existing skill with the same name. Restart Codex if it does not appear. Refer to the [official documentation](https://learn.chatgpt.com/docs/build-skills) for installation locations and invocation details.
-
-After installation, provide the thesis body and send your first-session prompt:
+Provide the thesis body and send your first-session prompt:
 
 ```text
-$thesis-viva
+Read the workflow guide and relevant references in the thesis-viva folder.
 Read the thesis I provided and state your reading coverage.
 Confirm whether this preparation should include examiner papers,
 then begin an English mock viva.
 Ask one main question at a time and wait for me to finish.
 ```
 
-### Option B: load manually in another AI assistant
+### Option B: provide the materials to a chat assistant
 
-1. Download and extract the [skill ZIP](dist/thesis-viva.zip?raw=true), keeping the complete `thesis-viva` folder.
-2. Give your assistant `SKILL.md`, both Markdown files in `references/`, and the thesis body.
+1. Download and extract the [guide ZIP](dist/thesis-viva.zip?raw=true), keeping the complete `thesis-viva` folder.
+2. Give your assistant the [workflow guide](thesis-viva/SKILL.md), both Markdown files in `references/`, and the thesis body.
 3. Copy this prompt to begin:
 
 ```text
-Read SKILL.md and use the two reference files as it directs.
+Read the VIVA QUEST workflow guide I provided and use its two references as directed.
 Begin a mock viva grounded in the thesis I supplied.
 First confirm whether to include examiner papers;
 then ask one question at a time.
@@ -94,7 +86,7 @@ This supplies instructions manually. File access, context capacity, and instruct
 ### Try another practice mode
 
 ```text
-$thesis-viva
+Continue using the VIVA QUEST guide you have read.
 Use my thesis only and generate 10 questions.
 For each, include chapter or figure references, questioning logic,
 follow-up branches, and answer boundaries.
@@ -102,7 +94,7 @@ Save the result as Markdown.
 ```
 
 ```text
-$thesis-viva
+Continue using the VIVA QUEST guide you have read.
 Review the real viva questions I provide against my thesis.
 Preserve the original question numbers and distinguish document evidence,
 my recollections, and analytical inferences.
@@ -118,7 +110,7 @@ All examples are **fictional demonstrations**. They describe no real person, the
 Input: [a fictional study of library seat reservations](examples/fictional-paper.md).
 
 ```text
-$thesis-viva
+Continue using the VIVA QUEST guide you have read.
 Use examples/fictional-paper.md in thesis-only mode.
 Generate 3 questions, each with sources and questioning logic.
 ```
@@ -144,7 +136,7 @@ Every question should answer two checks: **Where does it come from in the thesis
 4. **Build the questions:** Examine important reasoning steps, with clear follow-up objectives and stopping conditions.
 5. **Answer and reflect:** Separate evidence, plausible inference, and unknowns. An adequately supported conditional answer can end a follow-up.
 
-Within the same preparation, requests to continue or practice another round retain the choice. A different thesis, an explicit reset, or a new conversation without recoverable records requires setup again. The skill does not promise permanent cross-conversation memory.
+Within the same preparation, requests to continue or practice another round retain the choice. A different thesis, an explicit reset, or a new conversation without recoverable records requires setup again. The guide does not promise permanent cross-conversation memory.
 
 <a id="limits"></a>
 <img src="assets/en/limits.svg" width="800" alt="05 · Boundaries and privacy">
@@ -153,7 +145,7 @@ Within the same preparation, requests to continue or practice another round reta
 - **No pass guarantee or prediction feature.** It does not predict actual questions, examiner personality, conduct, or passing probability.
 - **Feedback has an evidence boundary.** A transcript alone cannot establish pronunciation, body language, or the real viva outcome.
 - **Adaptation depends on the material.** Experimental, theoretical, computational, and qualitative work use different routes; this does not establish validation in every discipline.
-- **Voice depends on the host.** The skill includes no voice engine. Turn-taking in voice mode depends on the platform.
+- **Voice depends on the host.** The guide includes no voice engine. Turn-taking in voice mode depends on the platform.
 - **You manage your thesis.** The repository contains no user theses or automatic thesis-upload scripts. Files supplied to an AI assistant remain subject to that platform's data policies. Do not post confidential theses, personal information, or original viva records in public Issues.
 
 <a id="faq"></a>
@@ -181,7 +173,7 @@ Relevance and contribution need checking. First-author or corresponding-author p
 </details>
 
 <details>
-<summary>The skill files are in English. Can I practice in Chinese?</summary>
+<summary>The guide files are in English. Can I practice in Chinese?</summary>
 
 You can request Chinese or English questions and feedback. The default follows the user's current language; expression quality depends on the model.
 
@@ -190,7 +182,7 @@ You can request Chinese or English questions and feedback. The default follows t
 <details>
 <summary>Will it generate reports automatically or run in the background?</summary>
 
-Ordinary practice uses conversation. Files are created when Markdown output is requested and the environment supports writing files. The skill has no background or scheduled tasks.
+Ordinary practice uses conversation. Files are created when Markdown output is requested and the environment supports writing files. The guide has no background or scheduled tasks.
 
 </details>
 
@@ -199,12 +191,10 @@ Ordinary practice uses conversation. Files are created when Markdown output is r
 
 <p align="center"><a href="#start"><img src="assets/en/next.svg" width="800" alt="Your next question starts with your thesis. Return to setup and begin your first session."></a></p>
 
-Ready to begin? [Get the skill](dist/thesis-viva.zip?raw=true), bring your thesis, and choose a practice mode. If it helps your preparation, consider a **Star** or share it with someone preparing for their viva.
+Ready to begin? [Get the guide](dist/thesis-viva.zip?raw=true), bring your thesis, and choose a practice mode. If it helps your preparation, consider a **Star** or share it with someone preparing for their viva.
 
-Report problems through [Issues](https://github.com/NoNightWatch/PhD-Mock-Viva/issues). Include your environment, reproduction steps, and expected and actual behavior. Remove confidential thesis content before posting.
+Report problems through [Issues](https://github.com/NoNightWatch/EZ-PhD-Mock-Viva/issues). Include your environment, reproduction steps, and expected and actual behavior. Remove confidential thesis content before posting.
 
-The core skill and original project files use the [MIT License](LICENSE). The hero is AI-assisted artwork, and pixel panels are drawn by a repository script. No existing game characters or assets were used. See [asset provenance](assets/source/README.md) for visual and font notes.
+The guide and original project files use the [MIT License](LICENSE).
 
-Page organization takes inspiration from [Obsidian-Codex-CC-for-academy](https://github.com/NoNightWatch/Obsidian-Codex-CC-for-academy); the text and artwork were created for this project. Linked external documents and third-party trademarks retain their respective rights. This project is not affiliated with game publishers or AI platforms.
-
-<p align="center"><a href="dist/thesis-viva.zip?raw=true">Get the skill</a> · <a href="thesis-viva/SKILL.md">Read the core instructions</a> · <a href="#start">Back to the start</a> · <a href="README.md">中文</a></p>
+<p align="center"><a href="dist/thesis-viva.zip?raw=true">Get the guide</a> · <a href="thesis-viva/SKILL.md">Read the core instructions</a> · <a href="#start">Back to the start</a> · <a href="README.md">中文</a></p>

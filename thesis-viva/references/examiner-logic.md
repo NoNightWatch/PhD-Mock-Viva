@@ -185,7 +185,7 @@ Use these routes to generate questions from a document's actual arguments. Selec
 
 **Boundary:** An aggregate measure may correspond to several combinations of mechanisms. Many-to-one mapping describes an identification problem; without an explicit model, it does not establish a quantified dimensionality-reduction process. Unobserved information in one study is not necessarily unobservable in principle.
 
-**Hypothetical examples:** Identical total test scores with different skill profiles; identical prediction accuracy with different error distributions; identical organizational membership with different working states.
+**Hypothetical examples:** Identical total test scores with different competency profiles; identical prediction accuracy with different error distributions; identical organizational membership with different working states.
 
 ## L12 Contribution, communication, and use
 

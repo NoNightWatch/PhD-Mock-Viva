@@ -1,6 +1,6 @@
 # Seat reservations and waiting time in a fictional library
 
-This complete miniature paper is a fictional demonstration written for this repository. All observations and numbers are invented. It is not a real study, a research claim, or a validation dataset for the skill. Section numbers provide stable locations for the example questions.
+This complete miniature paper is a fictional demonstration written for this repository. All observations and numbers are invented. It is not a real study, a research claim, or a validation dataset for the guide. Section numbers provide stable locations for the example questions.
 
 ## 1. Research question
 

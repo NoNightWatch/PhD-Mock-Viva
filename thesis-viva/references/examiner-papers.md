@@ -4,7 +4,7 @@ Use this reference only when the user chooses to include examiner papers. The ca
 
 ## 1. Receive and screen materials
 
-Reuse the preparation choice and material records defined in [SKILL.md](../SKILL.md). After the user chooses examiner-informed preparation, check for examiner names and relevant full texts. Use existing materials directly and state specific missing items once during setup. Do not request papers for each question.
+Reuse the preparation choice and material records defined in the [workflow guide](../SKILL.md). After the user chooses examiner-informed preparation, check for examiner names and relevant full texts. Use existing materials directly and state specific missing items once during setup. Do not request papers for each question.
 
 Suggest two to four representative papers if helpful, without imposing a fixed count. One paper can support exploratory questions tied to that work, but provides limited evidence for a recurring preference. Keep separate records for multiple examiners.
 

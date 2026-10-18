@@ -1,4 +1,4 @@
 interface:
-  display_name: "Thesis Viva"
+  display_name: "VIVA QUEST · 博士答辩演练指南"
   short_description: "Thesis-grounded viva with optional examiner-paper insights"
   default_prompt: "Use $thesis-viva to read my thesis, ask once at setup whether to include relevant first-author or corresponding-author papers by my examiners, retain that choice and those materials, and generate viva questions with sources and follow-up reasoning."

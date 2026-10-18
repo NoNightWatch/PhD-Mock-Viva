@@ -36,12 +36,12 @@ function icon(kind) {
 }
 const labels = {
   zh: {
-    actions:['下载 SKILL','开始第一轮','下一次追问，从你的论文开始。','准备正文 · 选择模式 · 开始练习'],
+    actions:['下载答辩指南','开始第一轮','下一次追问，从你的论文开始。','准备正文 · 选择模式 · 开始练习'],
     sections:[['modes','三种练习'],['start','准备与启动'],['example','虚构示例'],['workflow','练习路线'],['limits','边界与隐私'],['faq','常见问题'],['feedback','反馈与来源']],
     cards:[['questions','问题清单','主问题 · 出处 · 提问逻辑'],['practice','模拟答辩','一次一题 · 随回答追问'],['review','答辩复盘','对照原文 · 区分事实与回忆']]
   },
   en: {
-    actions:['GET THE SKILL','START PRACTICING','Your next question starts here.','Bring your thesis. Choose a mode. Begin.'],
+    actions:['GET THE GUIDE','START PRACTICING','Your next question starts here.','Bring your thesis. Choose a mode. Begin.'],
     sections:[['modes','THREE WAYS TO PRACTICE'],['start','PREPARE AND BEGIN'],['example','A FICTIONAL EXAMPLE'],['workflow','THE PRACTICE ROUTE'],['limits','BOUNDARIES & PRIVACY'],['faq','COMMON QUESTIONS'],['feedback','FEEDBACK & SOURCES']],
     cards:[['questions','QUESTION BANK','Questions, sources, reasoning'],['practice','MOCK VIVA','One question, adaptive follow-ups'],['review','POST-VIVA REVIEW','Compare the text and recollections']]
   }
